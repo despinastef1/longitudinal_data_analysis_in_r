@@ -296,9 +296,10 @@ summary(model_quadratic)
 anova(model_linear, model_quadratic)
 
 #to save the README.html file in the working directory, run:
-rmarkdown::pandoc_convert(
-  input = "README.md",
-  to = "html",
-  output = file.path(getwd(), "README.html"),
-  options = "--standalone"
-)
+# rmarkdown::pandoc_convert(
+#   input = "README.md",
+#   to = "html",
+#   output = file.path(getwd(), "README.html"),
+#   options = "--standalone"
+# )
+
