@@ -198,7 +198,8 @@ ggplot(effects_df, aes(x = week, y = estimate)) +
 #use predict(model, level = 1) to obtain fitted values that include each participant’s random intercept
 #group = id draws a separate line for each participant
 
-dat$fitted <- predict(model, newdata = dat, level = 1)
+dat$fitted <- predict(model, newdata = dat, level = 1) #predictions at participant level
+#dat$fitted <- predict(model, newdata = dat, level = 0) #predictions at population level
 
 ggplot(
   dat,

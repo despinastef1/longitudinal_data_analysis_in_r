@@ -297,8 +297,9 @@ Product B has an average generating slope of 2.5 points per week. The
 generating difference in average slopes is therefore 1.5 points per
 week. These are simulation parameters, not fitted results.</p>
 <p>Errors follow an AR(1) process with correlation parameter 0.5. The
-innovation standard deviation is 3, corresponding to a stationary error
-standard deviation of approximately 3.46.</p>
+new random variation added at each visit has a standard deviation of 3.
+Because errors carry over between visits, the overall error standard
+deviation is approximately 3.46.</p>
 <h2 id="data-quality-exercise">Data quality exercise</h2>
 <p>A copy of the simulated data was deliberately modified to
 include:</p>
@@ -399,9 +400,6 @@ structure.</p>
 </tr>
 </tbody>
 </table>
-<p>The random intercept and slope specification also estimates their
-correlation. A random slope does not automatically require AR(1). These
-represent different sources of dependence.</p>
 <h2 id="assessing-residual-correlation">Assessing residual
 correlation</h2>
 <p>A model with random intercepts and slopes but independent errors was
@@ -442,6 +440,8 @@ ML because their fixed effects differ:</p>
 <th>AIC</th>
 <th>BIC</th>
 <th>Log likelihood</th>
+<th>L.Ratio</th>
+<th>p-value</th>
 </tr>
 </thead>
 <tbody>
@@ -451,6 +451,8 @@ ML because their fixed effects differ:</p>
 <td>2064.709</td>
 <td>2099.327</td>
 <td>−1023.355</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>Quadratic</td>
@@ -458,11 +460,11 @@ ML because their fixed effects differ:</p>
 <td>2068.416</td>
 <td>2110.727</td>
 <td>−1023.208</td>
+<td>4.8705</td>
+<td>0.0876</td>
 </tr>
 </tbody>
 </table>
-<p>The likelihood ratio statistic was 0.2930, with 2 additional
-parameters and a p value of 0.8637.</p>
 <p>The quadratic terms provided little improvement. Both AIC and BIC
 favored the linear model. This supports retaining linear time for this
 example and is consistent with the generating process.</p>
@@ -471,7 +473,7 @@ Regenerating data, changing exclusions, or changing model specifications
 can change the results.</p>
 <p>A quadratic trajectory is nonlinear in time but remains linear in its
 coefficients. A true nonlinear mixed effects model, such as exponential
-growth toward a plateau, was discussed but was not fitted.</p>
+growth toward a plateau, was not fitted.</p>
 <h2 id="final-estimation-and-interpretation">Final estimation and
 interpretation</h2>
 <p>Refit the selected fixed effects structure using REML:</p>
@@ -523,12 +525,6 @@ sizes.</li>
 <li>Participant fitted lines including random effects.</li>
 <li>Participant fitted curves from the exploratory quadratic model.</li>
 </ul>
-<p>Participant predictions use
-<code>predict(model_final, newdata = analysis_dat, level = 1)</code>.
-Population predictions use <code>level = 0</code>.</p>
-<p>Error bars for estimated means describe uncertainty in population
-means, not the spread of individual observations. Product contrasts use
-pointwise intervals without adjustment across weeks.</p>
 <p>Diagnostics discussed include residuals versus fitted values,
 residual normal quantile plots, and the ACF of normalized residuals.</p>
 <h2 id="reproducibility-and-limitations">Reproducibility and
@@ -537,16 +533,7 @@ limitations</h2>
 seed 456. Run the simulation, corruption, cleaning, and modeling code in
 that order. Save <code>sessionInfo()</code> with analysis outputs to
 record the R environment.</p>
-<p>The README documents the analysis developed in this project. Its code
-excerpts assume the corresponding data preparation steps have already
-created <code>analysis_dat</code>.</p>
-<p>The simulated outcome is continuous and unbounded. It does not
-enforce the limits of a real satisfaction scale. Product assignment and
-missingness mechanisms are simplified for teaching.</p>
-<p>Mixed models can use incomplete participant records without filling
-in missing outcomes. Valid inference still depends on appropriate model
-assumptions and an ignorable missingness mechanism, typically missing at
-random conditional on the modeled and observed information.</p>
+<p>The README documents the analysis developed in this project.</p>
 <p>The primary demonstrated model selection result concerns linear
 versus quadratic time. Fitted treatment effect estimates should be
 reported from the actual model output rather than substituted with the

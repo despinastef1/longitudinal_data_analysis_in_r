@@ -31,7 +31,7 @@ Here, $B_i$ equals 1 for Product B and 0 for Product A. Participant intercept de
 
 Product A has an average generating slope of 1 point per week. Product B has an average generating slope of 2.5 points per week. The generating difference in average slopes is therefore 1.5 points per week. These are simulation parameters, not fitted results.
 
-Errors follow an AR(1) process with correlation parameter 0.5. The innovation standard deviation is 3, corresponding to a stationary error standard deviation of approximately 3.46.
+Errors follow an AR(1) process with correlation parameter 0.5. The new random variation added at each visit has a standard deviation of 3. Because errors carry over between visits, the overall error standard deviation is approximately 3.46.
 
 ## Data quality exercise
 
@@ -99,8 +99,6 @@ model_ar <- lme(
 | Random slope | Participant deviation in weekly change |
 | AR(1) | Additional residual dependence within participant |
 
-The random intercept and slope specification also estimates their correlation. A random slope does not automatically require AR(1). These represent different sources of dependence.
-
 ## Assessing residual correlation
 
 A model with random intercepts and slopes but independent errors was compared with the AR(1) model:
@@ -137,18 +135,16 @@ anova(model_linear, model_quadratic)
 
 The analysis produced the following supplied comparison:
 
-| Model | Parameters | AIC | BIC | Log likelihood |
-| --- | --- | --- | --- | --- |
-| Linear | 9 | 2064.709 | 2099.327 | −1023.355 |
-| Quadratic | 11 | 2068.416 | 2110.727 | −1023.208 |
-
-The likelihood ratio statistic was 0.2930, with 2 additional parameters and a p value of 0.8637.
+| Model | Parameters | AIC | BIC | Log likelihood | L.Ratio | p-value |
+| --- | --- | --- | --- | --- | --- | --- |
+| Linear | 9 | 2064.709 | 2099.327 | −1023.355 |   |   |   
+| Quadratic | 11 | 2068.416 | 2110.727 | −1023.208 | 4.8705 | 0.0876 |
 
 The quadratic terms provided little improvement. Both AIC and BIC favored the linear model. This supports retaining linear time for this example and is consistent with the generating process.
 
 These values describe the run shared during the analysis. Regenerating data, changing exclusions, or changing model specifications can change the results.
 
-A quadratic trajectory is nonlinear in time but remains linear in its coefficients. A true nonlinear mixed effects model, such as exponential growth toward a plateau, was discussed but was not fitted.
+A quadratic trajectory is nonlinear in time but remains linear in its coefficients. A true nonlinear mixed effects model, such as exponential growth toward a plateau, was not fitted.
 
 ## Final estimation and interpretation
 
@@ -214,21 +210,13 @@ The analysis developed ggplot2 code for:
 * Participant fitted lines including random effects.
 * Participant fitted curves from the exploratory quadratic model.
 
-Participant predictions use `predict(model_final, newdata = analysis_dat, level = 1)`. Population predictions use `level = 0`.
-
-Error bars for estimated means describe uncertainty in population means, not the spread of individual observations. Product contrasts use pointwise intervals without adjustment across weeks.
-
 Diagnostics discussed include residuals versus fitted values, residual normal quantile plots, and the ACF of normalized residuals.
 
 ## Reproducibility and limitations
 
 The simulation uses seed 123, and the deliberate data corruption uses seed 456. Run the simulation, corruption, cleaning, and modeling code in that order. Save `sessionInfo()` with analysis outputs to record the R environment.
 
-The README documents the analysis developed in this project. Its code excerpts assume the corresponding data preparation steps have already created `analysis_dat`.
-
-The simulated outcome is continuous and unbounded. It does not enforce the limits of a real satisfaction scale. Product assignment and missingness mechanisms are simplified for method illustration.
-
-Mixed models can use incomplete participant records without filling in missing outcomes. Valid inference still depends on appropriate model assumptions and an ignorable missingness mechanism, typically missing at random conditional on the modeled and observed information.
+The README documents the analysis developed in this project. 
 
 The primary demonstrated model selection result concerns linear versus quadratic time. Fitted treatment effect estimates should be reported from the actual model output rather than substituted with the known simulation parameters.
 
