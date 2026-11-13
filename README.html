@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>README</title>
+  <style type="text/css">
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="longitudinal-satisfaction-analysis-in-r">Longitudinal
+Satisfaction Analysis in R</h1>
+<p>This project explores repeated satisfaction measurements using
+simulated data, deliberate data quality problems, and mixed effects
+models. It demonstrates how to clean longitudinal records, model
+participant differences, assess residual correlation, and communicate
+effects with ggplot2.</p>
+<p>All observations are synthetic. The analysis is an educational
+example rather than evidence about actual products or consumers.</p>
+<h2 id="research-question">Research question</h2>
+<p>Does satisfaction change over time, and does the average rate of
+change differ between Product A and Product B?</p>
+<h2 id="simulated-study">Simulated study</h2>
+<p>The study contains 60 participants measured weekly from week 0
+through week 5, giving 360 observations before introducing data quality
+problems. Thirty participants receive each product. Product labels are
+assigned by participant number in the simulation rather than
+randomized.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Participant identifier</td>
+</tr>
+<tr>
+<td><code>week</code></td>
+<td>Time since the first visit, from 0 through 5</td>
+</tr>
+<tr>
+<td><code>product</code></td>
+<td>Product A or Product B</td>
+</tr>
+<tr>
+<td><code>satisfaction</code></td>
+<td>Simulated continuous satisfaction score</td>
+</tr>
+</tbody>
+</table>
+<p>The final simulation includes participant variation in both starting
+satisfaction and weekly slopes. Earlier examples used random intercepts
+alone.</p>
+<p>The generating model is:</p>
+<p><span
+class="math display"><em>Y</em><sub><em>i</em><em>t</em></sub> = 50 + <em>b</em><sub>0<em>i</em></sub> + [1 + 1.5<em>B</em><sub><em>i</em></sub> + <em>b</em><sub>1<em>i</em></sub>]<em>t</em> + <em>e</em><sub><em>i</em><em>t</em></sub></span></p>
+<p>Here, <span
+class="math inline"><em>B</em><sub><em>i</em></sub></span> equals 1 for
+Product B and 0 for Product A. Participant intercept deviations have
+standard deviation 8, and slope deviations have standard deviation 2.
+These deviations are generated independently.</p>
+<p>Product A has an average generating slope of 1 point per week.
+Product B has an average generating slope of 2.5 points per week. The
+generating difference in average slopes is therefore 1.5 points per
+week. These are simulation parameters, not fitted results.</p>
+<p>Errors follow an AR(1) process with correlation parameter 0.5. The
+innovation standard deviation is 3, corresponding to a stationary error
+standard deviation of approximately 3.46.</p>
+<h2 id="data-quality-exercise">Data quality exercise</h2>
+<p>A copy of the simulated data was deliberately modified to
+include:</p>
+<ul>
+<li>Extra whitespace in participant identifiers.</li>
+<li>Inconsistent product labels such as <code>A</code>, <code>a</code>,
+and <code>Product A</code>.</li>
+<li>Visit labels stored as text, such as <code>Week 3</code>.</li>
+<li>Satisfaction stored as text, such as <code>52.4 points</code>.</li>
+<li>Twelve missing satisfaction scores.</li>
+<li>One known entry error recorded as <code>999 points</code>.</li>
+<li>One visit recorded as <code>unknown</code>.</li>
+<li>Five exact duplicate records.</li>
+</ul>
+<p>The original data are retained as <code>dat_original</code>. The
+modified data are stored as <code>messy_dat</code>.</p>
+<h2 id="cleaning-workflow">Cleaning workflow</h2>
+<ol style="list-style-type: decimal">
+<li>Remove exact duplicate records with <code>distinct()</code>.</li>
+<li>Trim surrounding whitespace with <code>str_trim()</code>.</li>
+<li>Standardize product labels using <code>str_to_upper()</code> and
+<code>str_remove()</code>.</li>
+<li>Extract numeric weeks and satisfaction scores with
+<code>parse_number()</code>.</li>
+<li>Preserve the original week and satisfaction text for review.</li>
+<li>Flag the known entry error and replace its score with a missing
+value.</li>
+<li>Check for conflicting records within participant and week.</li>
+<li>Check that product assignment remains constant within
+participant.</li>
+<li>Create <code>analysis_dat</code> using visits with complete model
+variables.</li>
+</ol>
+<p>Exact duplicates can be removed in this exercise because their origin
+is known. Conflicting visit records would require investigation. The
+value 999 is treated as an error because it was deliberately inserted,
+not because all unusual observations should be discarded.</p>
+<p>Participants retain their other valid visits when a measurement is
+missing. Original week values are preserved so that missing visits do
+not change elapsed time.</p>
+<h2 id="r-packages">R packages</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;nlme&quot;</span>, <span class="st">&quot;emmeans&quot;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code></pre></div>
+<h2 id="mixed-effects-model">Mixed effects model</h2>
+<p>The main specification includes product, week, and their interaction,
+participant random intercepts and slopes, and an AR(1) residual
+structure.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>model_ar <span class="ot">&lt;-</span> <span class="fu">lme</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">fixed =</span> satisfaction <span class="sc">~</span> product <span class="sc">*</span> week,</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">random =</span> <span class="sc">~</span> week <span class="sc">|</span> id,</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="at">correlation =</span> <span class="fu">corAR1</span>(<span class="at">form =</span> <span class="sc">~</span> week <span class="sc">|</span> id),</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="at">data =</span> analysis_dat,</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;REML&quot;</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  <span class="at">na.action =</span> na.fail</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Component</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intercept</td>
+<td>Average starting satisfaction for Product A</td>
+</tr>
+<tr>
+<td><code>productB</code></td>
+<td>Difference between products at week 0</td>
+</tr>
+<tr>
+<td><code>week</code></td>
+<td>Average weekly change for Product A</td>
+</tr>
+<tr>
+<td><code>productB:week</code></td>
+<td>Difference in average weekly slopes between products</td>
+</tr>
+<tr>
+<td>Random intercept</td>
+<td>Participant deviation in starting satisfaction</td>
+</tr>
+<tr>
+<td>Random slope</td>
+<td>Participant deviation in weekly change</td>
+</tr>
+<tr>
+<td>AR(1)</td>
+<td>Additional residual dependence within participant</td>
+</tr>
+</tbody>
+</table>
+<p>The random intercept and slope specification also estimates their
+correlation. A random slope does not automatically require AR(1). These
+represent different sources of dependence.</p>
+<h2 id="assessing-residual-correlation">Assessing residual
+correlation</h2>
+<p>A model with random intercepts and slopes but independent errors was
+compared with the AR(1) model:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>model_no_ar <span class="ot">&lt;-</span> <span class="fu">update</span>(model_ar, <span class="at">correlation =</span> <span class="cn">NULL</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">anova</span>(model_no_ar, model_ar)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="fu">ACF</span>(model_ar, <span class="at">resType =</span> <span class="st">&quot;normalized&quot;</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="fl">0.05</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>)</span></code></pre></div>
+<p>The comparison uses identical fixed effects and observations, so REML
+likelihood comparisons are appropriate. AIC, the likelihood ratio test,
+and residual diagnostics should be interpreted together.</p>
+<p>Residual ACF plots need care with only six visits. Estimating
+participant intercepts and slopes can introduce negative residual
+correlations. Approximate plotted limits do not fully account for that
+estimation. No final numerical conclusion about adding AR(1) is
+documented here because its comparison output was not supplied.</p>
+<h2 id="assessing-curvature">Assessing curvature</h2>
+<p>A quadratic time model was compared with the linear time model using
+ML because their fixed effects differ:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>model_linear <span class="ot">&lt;-</span> <span class="fu">update</span>(model_ar, <span class="at">method =</span> <span class="st">&quot;ML&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>model_quadratic <span class="ot">&lt;-</span> <span class="fu">update</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  model_linear,</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="at">fixed =</span> satisfaction <span class="sc">~</span> product <span class="sc">*</span> (week <span class="sc">+</span> <span class="fu">I</span>(week<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>)</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="fu">anova</span>(model_linear, model_quadratic)</span></code></pre></div>
+<p>The analysis produced the following supplied comparison:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Parameters</th>
+<th>AIC</th>
+<th>BIC</th>
+<th>Log likelihood</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear</td>
+<td>9</td>
+<td>2064.709</td>
+<td>2099.327</td>
+<td>−1023.355</td>
+</tr>
+<tr>
+<td>Quadratic</td>
+<td>11</td>
+<td>2068.416</td>
+<td>2110.727</td>
+<td>−1023.208</td>
+</tr>
+</tbody>
+</table>
+<p>The likelihood ratio statistic was 0.2930, with 2 additional
+parameters and a p value of 0.8637.</p>
+<p>The quadratic terms provided little improvement. Both AIC and BIC
+favored the linear model. This supports retaining linear time for this
+example and is consistent with the generating process.</p>
+<p>These values describe the run shared during the analysis.
+Regenerating data, changing exclusions, or changing model specifications
+can change the results.</p>
+<p>A quadratic trajectory is nonlinear in time but remains linear in its
+coefficients. A true nonlinear mixed effects model, such as exponential
+growth toward a plateau, was discussed but was not fitted.</p>
+<h2 id="final-estimation-and-interpretation">Final estimation and
+interpretation</h2>
+<p>Refit the selected fixed effects structure using REML:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>model_final <span class="ot">&lt;-</span> <span class="fu">update</span>(model_linear, <span class="at">method =</span> <span class="st">&quot;REML&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">summary</span>(model_final)</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">VarCorr</span>(model_final)</span></code></pre></div>
+<p>Estimated product means at each week:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>estimated_means <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  model_final,</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="sc">~</span> product <span class="sc">|</span> week,</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="at">at =</span> <span class="fu">list</span>(<span class="at">week =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">confint</span>(estimated_means)</span></code></pre></div>
+<p>Product B minus Product A at each week:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>product_effects <span class="ot">&lt;-</span> <span class="fu">contrast</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  estimated_means,</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;revpairwise&quot;</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="at">adjust =</span> <span class="st">&quot;none&quot;</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>)</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="fu">confint</span>(product_effects)</span></code></pre></div>
+<p>Average weekly slopes and their difference:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>product_slopes <span class="ot">&lt;-</span> <span class="fu">emtrends</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  model_final,</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="sc">~</span> product,</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  <span class="at">var =</span> <span class="st">&quot;week&quot;</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="fu">confint</span>(product_slopes)</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="fu">summary</span>(</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>  <span class="fu">contrast</span>(product_slopes, <span class="at">method =</span> <span class="st">&quot;revpairwise&quot;</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>  <span class="at">infer =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>)</span></code></pre></div>
+<p>A product difference at a particular week is measured in satisfaction
+points. A slope difference is measured in satisfaction points per week.
+These answer different questions.</p>
+<h2 id="visualizations-and-diagnostics">Visualizations and
+diagnostics</h2>
+<p>The analysis developed ggplot2 code for:</p>
+<ul>
+<li>Observed average satisfaction by product and week.</li>
+<li>Model estimated mean trajectories with 95% confidence
+intervals.</li>
+<li>Product differences at each week, labeled with estimated effect
+sizes.</li>
+<li>Participant fitted lines including random effects.</li>
+<li>Participant fitted curves from the exploratory quadratic model.</li>
+</ul>
+<p>Participant predictions use
+<code>predict(model_final, newdata = analysis_dat, level = 1)</code>.
+Population predictions use <code>level = 0</code>.</p>
+<p>Error bars for estimated means describe uncertainty in population
+means, not the spread of individual observations. Product contrasts use
+pointwise intervals without adjustment across weeks.</p>
+<p>Diagnostics discussed include residuals versus fitted values,
+residual normal quantile plots, and the ACF of normalized residuals.</p>
+<h2 id="reproducibility-and-limitations">Reproducibility and
+limitations</h2>
+<p>The simulation uses seed 123, and the deliberate data corruption uses
+seed 456. Run the simulation, corruption, cleaning, and modeling code in
+that order. Save <code>sessionInfo()</code> with analysis outputs to
+record the R environment.</p>
+<p>The README documents the analysis developed in this project. Its code
+excerpts assume the corresponding data preparation steps have already
+created <code>analysis_dat</code>.</p>
+<p>The simulated outcome is continuous and unbounded. It does not
+enforce the limits of a real satisfaction scale. Product assignment and
+missingness mechanisms are simplified for teaching.</p>
+<p>Mixed models can use incomplete participant records without filling
+in missing outcomes. Valid inference still depends on appropriate model
+assumptions and an ignorable missingness mechanism, typically missing at
+random conditional on the modeled and observed information.</p>
+<p>The primary demonstrated model selection result concerns linear
+versus quadratic time. Fitted treatment effect estimates should be
+reported from the actual model output rather than substituted with the
+known simulation parameters.</p>
+</body>
+</html>
