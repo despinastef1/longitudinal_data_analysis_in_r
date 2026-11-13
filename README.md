@@ -218,5 +218,5 @@ The simulation uses seed 123, and the deliberate data corruption uses seed 456. 
 
 The README documents the analysis developed in this project. 
 
-The primary demonstrated model selection result concerns linear versus quadratic time. Fitted treatment effect estimates should be reported from the actual model output rather than substituted with the known simulation parameters.
+The primary demonstrated model selection result concerns linear versus quadratic time. 
 
